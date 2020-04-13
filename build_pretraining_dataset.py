@@ -50,7 +50,7 @@ class ExampleBuilder(object):
     bert_tokids = self._tokenizer.convert_tokens_to_ids(bert_tokens)
     self._current_sentences.append(bert_tokids)
     self._current_length += len(bert_tokids)
-    if self._current_length >= self._target_length:
+    if self._current_length >= self._target_length: # If cur_len is longer than max_len
       return self._create_example()
     return None
 
@@ -200,18 +200,20 @@ def main():
                       help="Location of vocabulary file.")
   parser.add_argument("--output-dir", required=True,
                       help="Where to write out the tfrecords.")
-  parser.add_argument("--max-seq-length", default=128, type=int,
+  parser.add_argument("--max-seq-length", default=512, type=int,
                       help="Number of tokens per example.")
-  parser.add_argument("--num-processes", default=1, type=int,
+  parser.add_argument("--num-processes", default=4, type=int,
                       help="Parallelize across multiple processes.")
-  parser.add_argument("--blanks-separate-docs", default=True, type=bool,
+  parser.add_argument("--blanks-separate-docs", default=False, type=bool,
                       help="Whether blank lines indicate document boundaries.")
   parser.add_argument("--do-lower-case", dest='do_lower_case',
                       action='store_true', help="Lower case input text.")
   parser.add_argument("--no-lower-case", dest='do_lower_case',
                       action='store_false', help="Don't lower case input text.")
-  parser.set_defaults(do_lower_case=True)
+  parser.set_defaults(do_lower_case=False)
   args = parser.parse_args()
+
+  print(args)
 
   utils.rmkdir(args.output_dir)
   if args.num_processes == 1:

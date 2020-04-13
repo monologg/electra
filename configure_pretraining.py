@@ -50,7 +50,7 @@ class PretrainingConfig(object):
     self.num_eval_steps = 100
 
     # model settings
-    self.model_size = "small"  # one of "small", "base", or "large"
+    self.model_size = "base"  # one of "small", "base", or "large"
     # override the default transformer hparams for the provided model size; see
     # modeling.BertConfig for the possible hparams and util.training_utils for
     # the defaults
@@ -58,8 +58,8 @@ class PretrainingConfig(object):
         kwargs["model_hparam_overrides"]
         if "model_hparam_overrides" in kwargs else {})
     self.embedding_size = None  # bert hidden size by default
-    self.vocab_size = 30522  # number of tokens in the vocabulary
-    self.do_lower_case = True  # lowercase the input?
+    self.vocab_size = 30522  # number of tokens in the vocabulary # TODO
+    self.do_lower_case = False  # lowercase the input?
 
     # generator settings
     self.uniform_generator = False  # generator is uniform at random
@@ -74,13 +74,13 @@ class PretrainingConfig(object):
     self.temperature = 1.0  # temperature for sampling from generator
 
     # batch sizes
-    self.max_seq_length = 128
-    self.train_batch_size = 128
-    self.eval_batch_size = 128
+    self.max_seq_length = 512
+    self.train_batch_size = 128 # TODO
+    self.eval_batch_size = 128 # TODO
 
-    # TPU settings
-    self.use_tpu = False
-    self.num_tpu_cores = 1
+    # TPU settings # TODO
+    self.use_tpu = True
+    self.num_tpu_cores = 8
     self.tpu_job_name = None
     self.tpu_name = None  # cloud TPU to use for training
     self.tpu_zone = None  # GCE zone where the Cloud TPU is located in
@@ -114,17 +114,17 @@ class PretrainingConfig(object):
       self.embedding_size = 128
     # Here are the hyperparameters we used for larger models; see Table 6 in the
     # paper for the full hyperparameters
-    # else:
-    #   self.max_seq_length = 512
-    #   self.learning_rate = 2e-4
-    #   if self.model_size == "base":
-    #     self.embedding_size = 768
-    #     self.generator_hidden_size = 0.33333
-    #     self.train_batch_size = 256
-    #   else:
-    #     self.embedding_size = 1024
-    #     self.mask_prob = 0.25
-    #     self.train_batch_size = 2048
+    else:
+      self.max_seq_length = 512
+      self.learning_rate = 2e-4
+      if self.model_size == "base":
+        self.embedding_size = 768
+        self.generator_hidden_size = 0.33333
+        self.train_batch_size = 256 #TODO
+      else:
+        self.embedding_size = 1024
+        self.mask_prob = 0.25
+        self.train_batch_size = 2048
 
     # passed-in-arguments override (for example) debug-mode defaults
     self.update(kwargs)
