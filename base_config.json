@@ -1,5 +1,5 @@
 {
-  "tpu_name": "grpc://10.100.183.10:8470",
+  "tpu_name": "electra-base",
   "tpu_zone": "europe-west4-a",
   "num_train_steps": 750000,
   "save_checkpoints_steps": 50000,
