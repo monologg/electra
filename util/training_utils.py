@@ -31,7 +31,7 @@ from util import utils
 class ETAHook(tf.estimator.SessionRunHook):
   """Print out the time remaining during training/evaluation."""
 
-  def __init__(self, to_log, loss, n_steps, iterations_per_loop, on_tpu,
+  def __init__(self, to_log, n_steps, iterations_per_loop, on_tpu,
                log_every=1, is_training=True):
     self._to_log = to_log
     self._n_steps = n_steps
@@ -44,8 +44,6 @@ class ETAHook(tf.estimator.SessionRunHook):
     self._global_step_tensor = None
     self._start_step = None
     self._start_time = None
-
-    self.loss = loss  # NOTE testing
 
   def begin(self):
     self._global_step_tensor = tf.train.get_or_create_global_step()
@@ -80,7 +78,6 @@ class ETAHook(tf.estimator.SessionRunHook):
     msg += ", ELAP: " + secs_to_str(time_elapsed)
     msg += ", ETA: " + secs_to_str(
         (self._n_steps - step) * time_per_step)
-    msg += ", LOSS: {:.4f}".format(self.loss) 
     if run_values is not None:
       for tag, value in run_values.results.items():
         msg += " - " + str(tag) + (": {:.4f}".format(value))
