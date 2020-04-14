@@ -1,5 +1,5 @@
 {
-  "tpu_name": "grpc://10.155.209.90:8470",
+  "tpu_name": "grpc://10.167.173.154:8470",
   "tpu_zone": "europe-west4-a",
   "num_train_steps": 750000,
   "save_checkpoints_steps": 50000,
