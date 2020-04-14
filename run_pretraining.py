@@ -286,6 +286,7 @@ def model_fn_builder(config: configure_pretraining.PretrainingConfig):
                 train_op=train_op,
                 training_hooks=[training_utils.ETAHook(
                     {} if config.use_tpu else dict(loss=model.total_loss),
+                    model.total_loss,  # NOTE testing
                     config.num_train_steps, config.iterations_per_loop,
                     config.use_tpu)]
             )
@@ -296,6 +297,7 @@ def model_fn_builder(config: configure_pretraining.PretrainingConfig):
                 eval_metrics=model.eval_metrics,
                 evaluation_hooks=[training_utils.ETAHook(
                     {} if config.use_tpu else dict(loss=model.total_loss),
+                    model.total_loss,  # NOTE testing
                     config.num_eval_steps, config.iterations_per_loop,
                     config.use_tpu, is_training=False)])
         else:
