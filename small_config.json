@@ -5,5 +5,6 @@
   "save_checkpoints_steps": 25000,
   "train_batch_size": 512,
   "learning_rate": 5e-4,
-  "do_eval": true
+  "do_eval": true,
+  "num_eval_steps": 200
 }
