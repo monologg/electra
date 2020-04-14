@@ -1,9 +1,9 @@
 {
   "tpu_name": "electra-small-128",
   "tpu_zone": "europe-west4-a",
-  "num_train_steps": 740000,
+  "num_train_steps": 370000,
   "save_checkpoints_steps": 10000,
-  "train_batch_size": 1024,
+  "train_batch_size": 2048,
   "learning_rate": 5e-4,
   "max_seq_length": 128
 }
