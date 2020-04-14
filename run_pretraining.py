@@ -375,7 +375,6 @@ def main():
         hparams = utils.load_json(args.hparams)
     else:
         hparams = json.loads(args.hparams)
-    print(hparams)
     tf.logging.set_verbosity(tf.logging.ERROR)
     train_or_eval(configure_pretraining.PretrainingConfig(
         args.model_name, args.data_dir, **hparams))
