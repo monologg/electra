@@ -1,6 +1,8 @@
 data/
 venv/
 __pycache__
-tfdata/
+pretrain_tfrecords
 
 vocab*.txt
+*.tar.gz
+tfdata*
