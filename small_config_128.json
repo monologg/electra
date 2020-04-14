@@ -1,5 +1,5 @@
 {
-  "tpu_name": "electra-small",
+  "tpu_name": "electra-small-128",
   "tpu_zone": "europe-west4-a",
   "num_train_steps": 185000,
   "save_checkpoints_steps": 9250,
