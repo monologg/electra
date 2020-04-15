@@ -5,5 +5,6 @@
   "save_checkpoints_steps": 10000,
   "train_batch_size": 2048,
   "learning_rate": 5e-4,
-  "max_seq_length": 128
+  "max_seq_length": 128,
+  "generator_hidden_size": 1.0
 }
