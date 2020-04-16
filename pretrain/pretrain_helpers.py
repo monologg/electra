@@ -29,6 +29,8 @@ from model import modeling
 from model import tokenization
 from pretrain import pretrain_data
 
+from tokenization_kocharelectra import KoCharElectraTokenizer
+
 
 def gather_positions(sequence, positions):
   """Gathers the vectors at the specific positions over a minibatch.
@@ -152,8 +154,10 @@ def mask(config: configure_pretraining.PretrainingConfig,
   B, L = modeling.get_shape_list(inputs.input_ids)
 
   # Find indices where masking out a token is allowed
-  vocab = tokenization.FullTokenizer(
-      config.vocab_file, do_lower_case=config.do_lower_case).vocab
+  # vocab = tokenization.FullTokenizer(
+      # config.vocab_file, do_lower_case=config.do_lower_case).vocab
+  vocab = KoCharElectraTokenizer.from_pretrained(config.vocab_file, do_lower_case=config.do_lower_case).vocab
+  assert config.do_lower_case == False
   candidates_mask = _get_candidates_mask(inputs, vocab, disallow_from_mask)
 
   # Set the number of tokens to mask out per example

@@ -1,10 +1,11 @@
 {
-  "tpu_name": "electra-small",
-  "tpu_zone": "europe-west4-a",
+  "tpu_name": "electra-char-small-v1",
+  "tpu_zone": "us-central1-f",
   "num_train_steps": 375000,
   "save_checkpoints_steps": 18750,
   "train_batch_size": 512,
   "learning_rate": 5e-4,
-  "max_seq_length": 512,
-  "generator_hidden_size": 1.0
+  "max_seq_length": 128,
+  "generator_hidden_size": 1.0,
+  "max_position_embeddings": 128
 }
