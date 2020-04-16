@@ -41,7 +41,7 @@ class PretrainingModel(object):
                  features, is_training):
         # Set up model config
         self._config = config
-        print(config)
+        print(config.max_position_embeddings)
         self._bert_config = training_utils.get_bert_config(config)
         print("--------------------")
         print(self._bert_config.max_position_embeddings)
