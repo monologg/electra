@@ -42,9 +42,6 @@ class PretrainingModel(object):
         # Set up model config
         self._config = config
         self._bert_config = training_utils.get_bert_config(config)
-        print("--------------------")
-        print(self._bert_config.max_position_embeddings)
-        print("--------------------")
         if config.debug:
             self._bert_config.num_hidden_layers = 3
             self._bert_config.hidden_size = 144
