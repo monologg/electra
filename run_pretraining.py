@@ -41,6 +41,7 @@ class PretrainingModel(object):
                  features, is_training):
         # Set up model config
         self._config = config
+        print(config)
         self._bert_config = training_utils.get_bert_config(config)
         print("--------------------")
         print(self._bert_config.max_position_embeddings)
@@ -272,6 +273,7 @@ def model_fn_builder(config: configure_pretraining.PretrainingConfig):
 
     def model_fn(features, labels, mode, params):
         """Build the model for training."""
+        print("Loading model_fn_builder")
         model = PretrainingModel(config, features,
                                  mode == tf.estimator.ModeKeys.TRAIN)
         utils.log("Model is built!")
