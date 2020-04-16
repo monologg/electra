@@ -77,6 +77,9 @@ class PretrainingConfig(object):
         self.train_batch_size = 128
         self.eval_batch_size = 128
 
+        # Max position embeddings
+        self.max_position_embeddings = 512
+
         # TPU settings
         self.use_tpu = True
         self.num_tpu_cores = 8
