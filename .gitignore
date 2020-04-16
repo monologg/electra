@@ -3,6 +3,5 @@ venv/
 __pycache__
 pretrain_tfrecords
 
-vocab*.txt
 *.tar.gz
 tfdata*
