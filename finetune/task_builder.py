@@ -30,7 +30,7 @@ from tokenization_kocharelectra import KoCharElectraTokenizer
 def get_tasks(config: configure_finetuning.FinetuningConfig):
   # tokenizer = tokenization.FullTokenizer(vocab_file=config.vocab_file,
   #                                        do_lower_case=config.do_lower_case)
-  tokenizer = KoCharElectraTokenizer.from_pretrained(config.vocab_file, 
+  tokenizer = KoCharElectraTokenizer.from_pretrained("vocab.txt", 
                                          do_lower_case=config.do_lower_case)
   assert config.do_lower_case == False
   return [get_task(config, task_name, tokenizer)

@@ -125,7 +125,7 @@ class ExampleWriter(object):
     tokenizer = tokenization.FullTokenizer(
         vocab_file=vocab_file,
         do_lower_case=do_lower_case)
-    tokenizer = KoCharElectraTokenizer.from_pretrained(vocab_file, do_lower_case=False)
+    tokenizer = KoCharElectraTokenizer.from_pretrained("vocab.txt", do_lower_case=False)
     self._example_builder = ExampleBuilder(tokenizer, max_seq_length)
     self._writers = []
     for i in range(num_out_files):

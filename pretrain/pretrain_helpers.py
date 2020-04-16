@@ -156,7 +156,7 @@ def mask(config: configure_pretraining.PretrainingConfig,
   # Find indices where masking out a token is allowed
   # vocab = tokenization.FullTokenizer(
       # config.vocab_file, do_lower_case=config.do_lower_case).vocab
-  vocab = KoCharElectraTokenizer.from_pretrained(config.vocab_file, do_lower_case=config.do_lower_case).vocab
+  vocab = KoCharElectraTokenizer.from_pretrained("vocab.txt", do_lower_case=config.do_lower_case).vocab
   assert config.do_lower_case == False
   candidates_mask = _get_candidates_mask(inputs, vocab, disallow_from_mask)
 
