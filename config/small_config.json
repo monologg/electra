@@ -7,5 +7,7 @@
   "learning_rate": 5e-4,
   "max_seq_length": 128,
   "generator_hidden_size": 1.0,
-  "max_position_embeddings": 128
+  "model_hparam_overrides": {
+    "max_position_embeddings": 128
+  }
 }
