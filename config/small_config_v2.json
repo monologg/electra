@@ -9,5 +9,6 @@
   "generator_hidden_size": 1.0,
   "model_hparam_overrides": {
     "max_position_embeddings": 128
-  }
+  },
+  "vocab_size": 5886
 }
