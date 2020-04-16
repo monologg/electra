@@ -1,7 +1,7 @@
 {
   "tpu_name": "koelectra-char-small-v1",
   "tpu_zone": "us-central1-f",
-  "num_train_steps": 190000,
+  "num_train_steps": 200000,
   "save_checkpoints_steps": 10000,
   "train_batch_size": 1024,
   "learning_rate": 4e-4,
