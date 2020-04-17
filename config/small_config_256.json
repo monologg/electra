@@ -1,0 +1,14 @@
+{
+  "tpu_name": "koelectra-char-small-256",
+  "tpu_zone": "us-central1-f",
+  "num_train_steps": 200000,
+  "save_checkpoints_steps": 10000,
+  "train_batch_size": 1024,
+  "learning_rate": 5e-4,
+  "max_seq_length": 256,
+  "generator_hidden_size": 1.0,
+  "model_hparam_overrides": {
+    "max_position_embeddings": 256
+  },
+  "vocab_size": 5886
+}
