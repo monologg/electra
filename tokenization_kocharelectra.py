@@ -26,19 +26,11 @@ logger = logging.getLogger(__name__)
 
 VOCAB_FILES_NAMES = {"vocab_file": "vocab.txt"}
 
-PRETRAINED_VOCAB_FILES_MAP = {
-    "vocab_file": {
-        "ko-char-electra-cased": ""
-    }
-}
+PRETRAINED_VOCAB_FILES_MAP = {}
 
-PRETRAINED_POSITIONAL_EMBEDDINGS_SIZES = {
-    "ko-char-electra-cased": 128
-}
+PRETRAINED_POSITIONAL_EMBEDDINGS_SIZES = {}
 
-PRETRAINED_INIT_CONFIGURATION = {
-    "ko-char-electra-cased": {"do_lower_case": False}
-}
+PRETRAINED_INIT_CONFIGURATION = {}
 
 
 def load_vocab(vocab_file):
@@ -124,8 +116,6 @@ class KoCharElectraTokenizer(PreTrainedTokenizer):
             mask_token=mask_token,
             **kwargs,
         )
-        self.max_len_single_sentence = self.max_len - 2  # take into account special tokens
-        self.max_len_sentences_pair = self.max_len - 3  # take into account special tokens
 
         if not os.path.isfile(vocab_file):
             raise ValueError(
