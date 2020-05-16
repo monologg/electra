@@ -4,7 +4,7 @@
   "num_train_steps": 600000,
   "save_checkpoints_steps": 50000,
   "train_batch_size": 512,
-  "learning_rate": 5e-4,
+  "learning_rate": 3e-4,
   "max_seq_length": 512,
   "generator_hidden_size": 1.0,
   "vocab_size": 11568
